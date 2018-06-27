@@ -22,9 +22,11 @@ def can_be_created_with_a_hash_of_attributes
   movie = Movie.create(attributes)
 end
 
-def can_be_created_in_a_block(args = nil)
-  Movie.create do |m|
-    
+def can_be_created_in_a_block(arg)
+  Movie.create do |m| 
+    movie.title = arg[:title] 
+  	movie.release_date = arg[:release_date]
+  	movie.save
   end
 end
 
